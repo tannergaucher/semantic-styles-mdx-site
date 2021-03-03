@@ -30,31 +30,43 @@ const components = {
           >
             <LivePreview
               style={{
-                marginBottom: `var(--space-lg)`,
-                marginTop: `var(--space-lg)`,
+                marginTop: `var(--space-md)`,
+                marginBottom: `0`,
               }}
             />
-            <LiveEditor
-              style={{
-                background: `var(--code-bg)`,
-                fontFamily: `var(--mono)`,
-                borderBottomLeftRadius: `var(--radius)`,
-                borderBottomRightRadius: `var(--radius)`,
-                boxShadow: `var(--elevation-2)`,
-                margin: `var(--space-lg) 0`,
-              }}
-            />
-            <LiveError
-              style={{
-                fontSize: `var(--text-xs)`,
-                borderRadius: `var(--radius)`,
-                margin: `var(--space-lg) 0`,
-                boxShadow: `var(--elevation-3)`,
-                color: `tomato`,
-                background: `var(--code-bg)`,
-                padding: `var(--space-sm)`,
-              }}
-            />
+            <details
+              className="details"
+              id="components-details"
+              style={{ marginBottom: `0` }}
+              open
+            >
+              <summary
+                className="summary text--md"
+                id="components-summary"
+                style={{ paddingLeft: `0`, marginBottom: `0` }}
+              >
+                Live Source Code
+              </summary>
+              <LiveEditor
+                style={{
+                  background: `var(--code-bg)`,
+                  fontFamily: `var(--mono)`,
+                  borderRadius: `var(--radius)`,
+                  boxShadow: `var(--elevation-2)`,
+                }}
+              />
+              <LiveError
+                style={{
+                  fontSize: `var(--text-xs)`,
+                  borderRadius: `var(--radius)`,
+                  margin: `var(--space-lg) 0`,
+                  boxShadow: `var(--elevation-3)`,
+                  color: `tomato`,
+                  background: `var(--code-bg)`,
+                  padding: `var(--space-sm)`,
+                }}
+              />
+            </details>
           </LiveProvider>
         </details>
       </div>
