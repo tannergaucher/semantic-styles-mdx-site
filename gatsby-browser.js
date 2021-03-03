@@ -17,34 +17,46 @@ const components = {
   pre: props =>
     props.children.props.live ? (
       <div>
-        <LiveProvider code={props.children.props.children} scope={scope}>
-          <LivePreview
-            style={{
-              marginBottom: `var(--space-lg)`,
-              marginTop: `var(--space-lg)`,
-            }}
-          />
-          <LiveEditor
-            style={{
-              background: `var(--code-bg)`,
-              fontFamily: `var(--mono)`,
-              borderRadius: `var(--radius)`,
-              boxShadow: `var(--elevation-2)`,
-              margin: `var(--space-lg) 0`,
-            }}
-          />
-          <LiveError
-            style={{
-              fontSize: `var(--text-xs)`,
-              borderRadius: `var(--radius)`,
-              margin: `var(--space-lg) 0`,
-              boxShadow: `var(--elevation-3)`,
-              color: `papayawhip`,
-              background: `var(--code-bg)`,
-              padding: `var(--space-sm)`,
-            }}
-          />
-        </LiveProvider>
+        <details className="details" id="components-details">
+          <summary className="summary" id="components-summary">
+            {props.children.props.metastring
+              .split("title=")[1]
+              .replace(/['"]+/g, "")}
+          </summary>
+          <LiveProvider
+            code={props.children.props.children}
+            scope={scope}
+            tabIndex="-1"
+          >
+            <LivePreview
+              style={{
+                marginBottom: `var(--space-lg)`,
+                marginTop: `var(--space-lg)`,
+              }}
+            />
+            <LiveEditor
+              style={{
+                background: `var(--code-bg)`,
+                fontFamily: `var(--mono)`,
+                borderBottomLeftRadius: `var(--radius)`,
+                borderBottomRightRadius: `var(--radius)`,
+                boxShadow: `var(--elevation-2)`,
+                margin: `var(--space-lg) 0`,
+              }}
+            />
+            <LiveError
+              style={{
+                fontSize: `var(--text-xs)`,
+                borderRadius: `var(--radius)`,
+                margin: `var(--space-lg) 0`,
+                boxShadow: `var(--elevation-3)`,
+                color: `tomato`,
+                background: `var(--code-bg)`,
+                padding: `var(--space-sm)`,
+              }}
+            />
+          </LiveProvider>
+        </details>
       </div>
     ) : (
       <>

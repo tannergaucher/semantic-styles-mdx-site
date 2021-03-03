@@ -11,15 +11,12 @@ const Layout = ({ location, children }) => {
   const { title } = useSiteMetadata()
   return (
     <>
+      {/* TODO App pattern */}
       <header className="header padding">
-        <Link
-          to="/"
-          className="nav-link"
-          data-is-active={
-            !window.location.hash && window.location.pathname === `/`
-          }
-        >
-          <h1 className="title">{title}</h1>
+        <Link to="/" className="nav-link">
+          <h1 className="title" style={{ marginBlockStart: `var(--space-md)` }}>
+            {title}
+          </h1>
         </Link>
         <Navlinks location={location} />
       </header>

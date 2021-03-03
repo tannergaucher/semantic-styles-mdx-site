@@ -4,9 +4,9 @@ import { Image } from "."
 
 const Card = () => (
   <div className="card">
-    <h4 className="card-heading">I'm a Card Heading</h4>
     <Image />
-    <p className="card-text text--sm">
+    <h4 className="card-heading">I'm a Card Heading</h4>
+    <p className="card-text">
       Card text is a paragraph element with a class of card dash text.
     </p>
   </div>

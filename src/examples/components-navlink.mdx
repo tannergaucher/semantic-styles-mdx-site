@@ -1,0 +1,20 @@
+```jsx live="true" title="Navlink"
+// I'm a live code snippet. Try me out 👨‍💻
+
+function Navlink({
+  text = "Navlink",
+  to = "/components",
+  // Mocked reach router location object
+  location = { pathname: "/" },
+}) {
+  return (
+    <Link
+      className="nav-link"
+      data-is-active={location.pathname === to}
+      to={to}
+    >
+      <h4>{text}</h4>
+    </Link>
+  )
+}
+```

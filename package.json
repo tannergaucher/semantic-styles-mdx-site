@@ -7,8 +7,10 @@
   "dependencies": {
     "@mdx-js/mdx": "^1.5.5",
     "@mdx-js/react": "^1.5.5",
+    "@reach/router": "^1.3.4",
     "gatsby": "^2.19.7",
     "gatsby-image": "^2.2.39",
+    "gatsby-plugin-anchor-links": "^1.2.1",
     "gatsby-plugin-manifest": "^2.2.39",
     "gatsby-plugin-mdx": "^1.0.73",
     "gatsby-plugin-offline": "^3.0.32",
@@ -21,6 +23,7 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-helmet": "^5.2.1",
+    "react-intersection-observer": "^8.31.0",
     "react-live": "^2.2.2",
     "semantic-styles": "0.0.27"
   },

@@ -1,17 +1,35 @@
+import { useEffect, useRef } from "react"
 import { Link } from "gatsby"
+import { useInView } from "react-intersection-observer"
 
 import { useSiteMetadata } from "../hooks"
 import { Layout, SEO, Image, Card } from "../components"
 
-<!-- LAYOUT -->
-    
+import Typography from "../examples/typography.mdx"
+import Color from "../examples/color.mdx"
+import Spacing from "../examples/spacing.mdx"
+import Button from "../examples/components-button.mdx"
+import ExampleCard from "../examples/components-card.mdx"
+import Fieldset from "../examples/components-fieldset.mdx"
+import Figure from "../examples/components-figure.mdx"
+import NavLink from "../examples/components-navlink.mdx"
+import SummaryDetails from "../examples/components-summary-details.mdx"
+import Textarea from "../examples/components-textarea.mdx"
+import App from "../examples/layout-app.mdx"
+import ContentGrid from "../examples/layout-content-grid.mdx"
+import AsideContentGrid from "../examples/layout-aside-content-grid.mdx"
+import ContentAsideGrid from "../examples/layout-content-aside-grid.mdx"
+import ImageGrid from "../examples/layout-image-grid.mdx"
+
+<!-- <LAYOUT/> -->
+
 export default ({ location, children }) => {
-  const { description, subHeading } = useSiteMetadata()
+  const { title, description, subHeading } = useSiteMetadata()
   return (
     <Layout location={location}>
       <article className="page">
-        <SEO title="Home" />
-        <div className="aside-content-grid">
+        <SEO title={`${description}`} />
+        <div className="aside-content-grid container">
           <div className="content padding">
             <br />
             <div className="card">
@@ -20,26 +38,9 @@ export default ({ location, children }) => {
               <br />
               <p className="card-text">{subHeading}</p>
             </div>
-            <br />
+            <br className="br" />
             {children}
           </div>
-          <aside className="aside padding">
-            <a className="nav-link" href="#typography" data-is-active={window.location.hash.includes(`#typography`)}>
-              <h3>Typography</h3>
-            </a>
-            <a className="nav-link" href="#color" data-is-active={window.location.hash === `#color`}>
-              <h3>Color</h3>
-            </a>
-            <a className="nav-link" href="#spacing" data-is-active={window.location.hash === `#spacing`}>
-              <h3>Spacing</h3>
-            </a>
-            <a className="nav-link" href="#components-btn" data-is-active={window.location.hash.includes(`#components`)}>
-              <h3>Components</h3>
-            </a>
-            <a className="nav-link" href="#layout-app" data-is-active={window.location.hash.includes(`#layout`)}>
-              <h3>Layout</h3>
-            </a>
-          </aside>
         </div>
       </article>
     </Layout>
@@ -49,382 +50,20 @@ export default ({ location, children }) => {
 <!-- MDX BODY  -->
 
 <hr className="hr" />
-
-```jsx live="true"
-// I'm a live code snippet. Try me out 👨‍💻
-
-<>
-  <h1 className="title scroll-margin-top-lg" id="typography">
-    Title Heading One
-  </h1>
-  <h1>Heading One</h1>
-  <h2>Heading Two</h2>
-  <h3>Heading Three</h3>
-  <h4>Heading Four</h4>
-  <small>Small</small>
-  <P />
-</>
-```
-
+<Typography />
+<Color />
+<Spacing />
 <hr className="hr" />
-
-```jsx live="true"
-<div className="content-grid scroll-margin-top-lg" id="color">
-  <div
-    style={{
-      background: `var(--text-color)`,
-      color: `var(--accent-1)`,
-      padding: `var(--space-lg)`,
-      borderRadius: `var(--radius)`,
-      boxShadow: `var(--elevation-1)`,
-    }}
-  >
-    --text-color
-  </div>
-  <div
-    style={{
-      background: `var(--bg-1)`,
-      padding: `var(--space-lg)`,
-      borderRadius: `var(--radius)`,
-      boxShadow: `var(--elevation-1)`,
-    }}
-  >
-    --bg-1
-  </div>
-  <div
-    style={{
-      background: `var(--bg-2)`,
-      padding: `var(--space-lg)`,
-      borderRadius: `var(--radius)`,
-      boxShadow: `var(--elevation-1)`,
-    }}
-  >
-    --bg-2
-  </div>
-  <div
-    style={{
-      background: `var(--grey)`,
-      padding: `var(--space-lg)`,
-      borderRadius: `var(--radius)`,
-      boxShadow: `var(--elevation-1)`,
-    }}
-  >
-    --grey
-  </div>
-  <div
-    style={{
-      background: `var(--accent-1)`,
-      padding: `var(--space-lg)`,
-      borderRadius: `var(--radius)`,
-      boxShadow: `var(--elevation-1)`,
-      color: `var(--accent-2)`,
-    }}
-  >
-    --accent-1
-  </div>
-  <div
-    style={{
-      background: `var(--accent-2)`,
-      padding: `var(--space-lg)`,
-      borderRadius: `var(--radius)`,
-      boxShadow: `var(--elevation-1)`,
-      color: `var(--accent-1)`,
-    }}
-  >
-    --accent-2
-  </div>
-  <div
-    style={{
-      background: `var(--code-bg)`,
-      padding: `var(--space-lg)`,
-      borderRadius: `var(--radius)`,
-      boxShadow: `var(--elevation-1)`,
-      color: `var(--accent-1)`,
-    }}
-  >
-    --code-bg
-  </div>
-</div>
-```
-
+<Button />
+<ExampleCard />
+<Fieldset />
+<Figure />
+<NavLink />
+<SummaryDetails />
+<Textarea />
 <hr className="hr" />
-
-```jsx live="true"
-<div className="scroll-margin-top-lg" id="spacing">
-  <div
-    className="card"
-    style={{
-      marginBottom: `var(--space-sm)`,
-      padding: `var(--space-sm)`,
-    }}
-  >
-    --space-sm
-  </div>
-
-  <div
-    className="card"
-    style={{
-      marginBottom: `var(--space-md)`,
-      padding: `var(--space-md) var(--space-sm)`,
-    }}
-  >
-    --space-md
-  </div>
-
-  <div
-    className="card"
-    style={{
-      marginBottom: `var(--space-lg)`,
-      padding: `var(--space-lg) var(--space-sm)`,
-    }}
-  >
-    --space-lg
-  </div>
-
-  <div
-    className="card"
-    style={{
-      marginBottom: `var(--space-xl)`,
-      padding: `var(--space-xl) var(--space-sm)`,
-    }}
-  >
-    --space-xl
-  </div>
-</div>
-```
-
-<hr className="hr" id="components"/>
-<div>
-<nav className="nav sticky-nav" >
-  <a className="nav-link" href="#components-btn" data-is-active={window.location.hash === `#components-btn`}>
-    <h4>Button</h4>
-  </a>
-  <a className="nav-link" href="#components-card" data-is-active={window.location.hash === `#components-card`}>
-    <h4>Card</h4>
-  </a>
-  <a className="nav-link" href="#components-fieldset" data-is-active={window.location.hash === `#components-fieldset`}>
-    <h4>Fieldset</h4>
-  </a>
-  <a className="nav-link" href="#components-figure" data-is-active={window.location.hash === `#components-figure`}>
-    <h4>Figure</h4>
-  </a>
-  <a className="nav-link" href="#components-navlink" data-is-active={window.location.hash === `#components-navlink`}>
-    <h4>Navlink</h4>
-  </a>
-  <a className="nav-link" href="#components-textarea" data-is-active={window.location.hash === `#components-textarea`}>
-    <h4>Textarea</h4>
-  </a>
-</nav>
-
-```jsx live="true"
-<div className="scroll-margin-top-xl" id="components-btn">
-  <br className="br" />
-  <button className="btn">Button</button>
-  <button className="btn btn-primary">Primary Button</button>
-  <button className="btn" disabled={true}>
-    Button Disabled
-  </button>
-  <button className="btn btn-primary" disabled={true}>
-    Primary Button Disabled
-  </button>
-</div>
-```
-
+<App />
+<ContentGrid />
+<AsideContentGrid />
+<ImageGrid />
 <hr className="hr" />
-
-```jsx live="true"
-<div className="card scroll-margin-top-xl" id="components-card">
-  <h2 className="card-heading">Heading</h2>
-  <Image />
-  <p className="card-text">Text</p>
-</div>
-```
-
-<hr className="hr"  id="components-fieldset"/>
-
-```jsx live="true"
-<fieldset className="fieldset" >
-  <form className="form" action="">
-    <input className="input" type="email" placeholder="Input" />
-    <button className="btn btn-primary" type="submit">
-      Primary Button
-    </button>
-  </form>
-</fieldset>
-```
-
-<hr className="hr" />
-
-```jsx live="true"
-<figure className="figure scroll-margin-top-xl" id="components-figure">
-  <Image />
-  <figcaption className="figcaption">Figcaption</figcaption>
-</figure>
-```
-
-<hr className="hr" id="components-navlink" />
-
-```jsx live="true"
-function Navlink({
-  text = "Navlink",
-  to = "/components",
-  // Mocked reach router location object
-  location = { pathname: "/" },
-}) {
-  return (
-    <Link
-      className="nav-link"
-      data-is-active={location.pathname === to}
-      to={to}
-    >
-      <h4>{text}</h4>
-    </Link>
-  )
-}
-```
-
-<hr className="hr" id="components-textarea"/>
-
-```jsx live="true"
-<form className="form">
-  <textarea className="textarea"  />
-  <button className="btn btn-primary">Submit</button>
-</form>
-```
-</div>
-
-<hr className="hr" />
-<nav className="nav sticky-nav" id="layout">
-  <a className="nav-link" href="#layout-app" data-is-active={window.location.hash === `#layout-app`}>
-    <h4>App</h4>
-  </a>
-  <a className="nav-link" href="#layout-content-grid" data-is-active={window.location.hash === `#layout-content-grid`}>
-    <h4>Content Grid</h4>
-  </a>
-  <a className="nav-link" href="#layout-aside-content-grid"  data-is-active={window.location.hash === `#layout-aside-content-grid`}>
-    <h4>Aside Content Grid</h4>
-  </a>
-  <a className="nav-link" href="#layout-content-aside-grid" data-is-active={window.location.hash === `#layout-content-aside-grid`}>
-    <h4>Content Aside Grid</h4>
-  </a>
-  <a className="nav-link" href="#layout-image-grid" data-is-active={window.location.hash === `#layout-image-grid`}>
-    <h4>Image Grid</h4>
-  </a>
-</nav>
-
-```jsx live="true"
-<div id="layout-app" className="scroll-margin-top-xl">
-  <header
-    className="header padding"
-    style={{
-      background: `var(--accent-2)`,
-    }}
-  >
-    <h4  className="card-heading">Header </h4>
-  </header>
-  <main
-    className="main padding"
-    style={{
-      background: `var(--accent-1)`,
-    }}
-  >
-    <h4 className="card-heading">Main</h4>
-  </main>
-  <footer
-    className="footer padding"
-    style={{
-      background: `var(--accent-2)`,
-    }}
-  >
-    <h4 className="card-heading">Footer</h4>
-  </footer>
-</div>
-```
-
-<hr className="hr" id="layout-content-grid"/>
-
-```jsx live="true"
-<div className="content-grid scroll-margin-top">
-  <Card />
-  <Card />
-  <Card />
-  <Card />
-  <Card />
-  <Card />
-  <Card />
-  <Card />
-</div>
-```
-
-<hr className="hr"   id="layout-aside-content-grid"/>
-
-
-```jsx live="true"
-<div className="aside-content-grid">
-  <aside
-    className="aside"
-    style={{
-      background: `var(--accent-2)`,
-      color: `var(--accent-1)`,
-      borderRadius: `var(--radius)`,
-    }}
-  >
-    <h4 className="card-heading">Aside</h4>
-  </aside>
-  <div
-    className="content"
-    style={{
-      background: `var(--accent-1)`,
-      color: `var(--accent-2)`,
-      borderRadius: `var(--radius)`,
-    }}
-  >
-    <h4 className="card-heading">Content</h4>
-  </div>
-</div>
-```
-
-<hr className="hr"   id="layout-content-aside-grid"/>
-
-```jsx live="true"
-<div className="content-aside-grid">
-  <div
-    className="content"
-    style={{
-      background: `var(--accent-1)`,
-      color: `var(--accent-2)`,
-      boxShadow: `var(--elevation-2)`,
-      borderRadius: `var(--radius)`,
-    }}
-  >
-    <h4 className="card-heading">Content</h4>
-  </div>
-  <aside
-    className="aside"
-    style={{
-      background: `var(--accent-2)`,
-      boxShadow: `var(--elevation-1)`,
-      borderRadius: `var(--radius)`,
-    }}
-  >
-    <h4 className="card-heading">Aside</h4>
-  </aside>
-</div>
-```
-
-<hr className="hr" id="layout-image-grid"/>
-
-
-```jsx live="true"
-<div className="image-grid">
-  <Image />
-  <Image />
-  <Image />
-  <Image />
-  <Image />
-  <Image />
-  <Image />
-  <Image />
-  <Image />
-</div>
-```
