@@ -2,9 +2,8 @@ module.exports = {
   siteMetadata: {
     title: `Semantic Styles`,
     description: `Responsive, Themed, UI Design System`,
-    subHeading: `Featuring responsive typography and spacing, calculated vertical
-    rhythm, responsive light / dark theme, classes that match
-    semantic HTML elements.`,
+    subHeading: `Featuring responsive typography, spacing, layout. Calculated, adjustable vertical
+    rhythm. Fully themed with automatic light / dark mode. Intuitive classes that encourage writing semantic HTML. Built for rapid prototyping.`,
     author: `<tannermichaelgaucher@gmail>`,
     social: {
       github: `https://github.com/tannergaucher`,

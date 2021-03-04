@@ -41,18 +41,17 @@ const components = {
               open
             >
               <summary
-                className="summary text--md"
+                className="summary text--sm"
                 id="components-summary"
                 style={{ paddingLeft: `0`, marginBottom: `0` }}
               >
-                Live Source Code
+                Live Code Example
               </summary>
               <LiveEditor
                 style={{
                   background: `var(--code-bg)`,
                   fontFamily: `var(--mono)`,
                   borderRadius: `var(--radius)`,
-                  boxShadow: `var(--elevation-2)`,
                 }}
               />
               <LiveError
