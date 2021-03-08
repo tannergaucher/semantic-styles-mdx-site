@@ -1,10 +1,13 @@
-import React from "react"
+import React, { Suspense } from "react"
 import { Link } from "gatsby"
 import { MDXProvider } from "@mdx-js/react"
 import Highlight, { defaultProps } from "prism-react-renderer"
-import { LiveEditor, LiveError, LivePreview, LiveProvider } from "react-live"
 
 import { Card, Image, P } from "./src/components"
+
+const LiveCodeEditor = React.lazy(() =>
+  import("./src/components/live-code-editor.js")
+)
 
 const scope = {
   Image,
@@ -23,50 +26,12 @@ const components = {
               .split("title=")[1]
               .replace(/['"]+/g, "")}
           </summary>
-          <LiveProvider
-            code={props.children.props.children}
-            scope={scope}
-            tabIndex="-1"
-          >
-            <LivePreview
-              style={{
-                marginTop: `var(--space-md)`,
-                marginBottom: `0`,
-              }}
+          <Suspense fallback={<>Loading...</>}>
+            <LiveCodeEditor
+              code={props.children.props.children}
+              scope={scope}
             />
-            <details
-              className="details"
-              id="components-details"
-              style={{ marginBottom: `0` }}
-              open
-            >
-              <summary
-                className="summary text--sm"
-                id="components-summary"
-                style={{ paddingLeft: `0`, marginBottom: `0` }}
-              >
-                Live Code Example
-              </summary>
-              <LiveEditor
-                style={{
-                  background: `var(--code-bg)`,
-                  fontFamily: `var(--mono)`,
-                  borderRadius: `var(--radius)`,
-                }}
-              />
-              <LiveError
-                style={{
-                  fontSize: `var(--text-xs)`,
-                  borderRadius: `var(--radius)`,
-                  margin: `var(--space-lg) 0`,
-                  boxShadow: `var(--elevation-3)`,
-                  color: `tomato`,
-                  background: `var(--code-bg)`,
-                  padding: `var(--space-sm)`,
-                }}
-              />
-            </details>
-          </LiveProvider>
+          </Suspense>
         </details>
       </div>
     ) : (
