@@ -27,7 +27,7 @@ export default ({ location, children }) => {
   const { title, description, subHeading } = useSiteMetadata()
   return (
     <Layout location={location}>
-      <article className="page">
+      <article className="page" style={{ marginTop: `var(--space-md)` }}>
         <SEO title={`${description}`} />
         <div className="aside-content-grid container">
           <div className="content padding">
