@@ -1,0 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@400&display=swap");
+
+:root {
+  --mono: "Fira Code", monospace;
+}

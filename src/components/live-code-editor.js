@@ -1,10 +1,11 @@
 import React from "react"
 import { LiveEditor, LiveError, LivePreview, LiveProvider } from "react-live"
+import nightowl from "prism-react-renderer/themes/nightOwl"
 
 export default function LiveCodeEditor({ code, scope }) {
   return (
     <>
-      <LiveProvider code={code} scope={scope} tabIndex="-1">
+      <LiveProvider code={code} scope={scope} theme={nightowl}>
         <LivePreview
           style={{
             marginTop: `var(--space-md)`,

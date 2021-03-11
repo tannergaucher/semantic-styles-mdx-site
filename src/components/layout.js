@@ -1,8 +1,8 @@
 import React from "react"
-import PropTypes from "prop-types"
 import { Link } from "gatsby"
 
 import "semantic-styles"
+import "../index.css"
 
 import { useSiteMetadata } from "../hooks"
 
