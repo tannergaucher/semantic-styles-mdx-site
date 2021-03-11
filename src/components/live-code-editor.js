@@ -22,7 +22,7 @@ export default function LiveCodeEditor({ code, scope }) {
             id="components-summary"
             style={{ paddingLeft: `0`, marginBottom: `0` }}
           >
-            Live Code Example
+            Live Code
           </summary>
           <LiveEditor
             style={{
