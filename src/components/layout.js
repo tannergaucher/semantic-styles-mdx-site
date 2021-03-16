@@ -20,7 +20,9 @@ const Layout = ({ children }) => {
       <main className="main">{children}</main>
       <footer className="footer container padding">
         <Link to="/" className="nav-link">
-          <h2 className="title">{title}</h2>
+          <h2 className="title" style={{ marginBlockEnd: `var(--space-xl)` }}>
+            {title}
+          </h2>
         </Link>
       </footer>
     </>
