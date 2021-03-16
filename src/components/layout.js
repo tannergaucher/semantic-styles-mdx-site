@@ -11,7 +11,7 @@ const Layout = ({ children }) => {
   return (
     <>
       <header className="header container padding">
-        <Link to="/" className="nav-link only-fullscreen-padding">
+        <Link to="/" className="nav-link">
           <h1 className="title" style={{ marginBlockStart: `var(--space-xl)` }}>
             {title}
           </h1>
@@ -19,7 +19,7 @@ const Layout = ({ children }) => {
       </header>
       <main className="main">{children}</main>
       <footer className="footer container padding">
-        <Link to="/" className="nav-link only-fullscreen-padding">
+        <Link to="/" className="nav-link">
           <h2 className="title">{title}</h2>
         </Link>
       </footer>
