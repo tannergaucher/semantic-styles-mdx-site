@@ -15,7 +15,7 @@ export default function LiveCodeEditor({ code, scope }) {
         <details
           className="details"
           id="components-details"
-          style={{ marginBottom: `0` }}
+          style={{ marginBottom: `0`, boxShadow: `none` }}
         >
           <summary
             className="summary text--sm"
